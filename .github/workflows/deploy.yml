@@ -7,6 +7,11 @@ on:
   # 手動でワークフローを実行することもできます
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 # JOBSの設定
 jobs:
   build:
@@ -15,10 +20,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
-        uses: withastro/action@v1
-        with:
-          # パッケージマネージャーの指定（npm, yarn, pnpm, bun）
-          package-manager: pnpm
+        uses: withastro/action@v3
 
   deploy:
     needs: build
@@ -32,4 +34,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
