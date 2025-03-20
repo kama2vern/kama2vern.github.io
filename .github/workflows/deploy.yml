@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  # mainブランチにプッシュしたときに実行されます
+  push:
+    branches: [ main ]
+  # 手動でワークフローを実行することもできます
+  workflow_dispatch:
+
+# JOBSの設定
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
+        with:
+          # パッケージマネージャーの指定（npm, yarn, pnpm, bun）
+          package-manager: pnpm
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
