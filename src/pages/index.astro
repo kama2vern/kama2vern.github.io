@@ -4,23 +4,26 @@ import { latestArticles } from '../lib/articles';
 ---
 
 <Layout title="kama2vern.github.io">
-	<section class="w-full p-12">
-		<ul class="flex flex-col gap-12">
-			{latestArticles().map((article) => <li>
-				<time datetime={article.data.pubDate.toISOString()} class="block text-gray-700">
-					{
-						new Date(article.data.pubDate).toLocaleDateString("ja-JP", {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})
-					}
-				</time>
-				<a href={`/articles/${article.slug}`}>{article.data.title}</a>
-			</li>)}
-		</ul>
-		<p class="mt-12">
-			<a class="before:content-['»_']" href="/articles">すべての記事一覧へ</a>
-		</p>
-	</section>
+	<div class="container mx-auto max-w-2xl py-6">
+		<section>
+			<img src="src/assets/profile.png" alt="kama2vern" class="rounded rounded-2xl w-48 h-48 mb-16 transition-all duration-300 hover:scale-110" />
+			<ul class="flex flex-col gap-12">
+				{latestArticles().map((article) => <li>
+					<time datetime={article.data.pubDate.toISOString()} class="block text-slate-700">
+						{
+							new Date(article.data.pubDate).toLocaleDateString("ja-JP", {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})
+						}
+					</time>
+					<a href={`/articles/${article.slug}`} class="text-xl font-bold text-slate-700 underline">{article.data.title}</a>
+				</li>)}
+			</ul>
+			<p class="mt-12">
+				<a class="before:content-['»_'] text-xl text-slate-700 font-bold underline" href="/articles">すべての記事一覧へ</a>
+			</p>
+		</section>
+	</div>
 </Layout>

@@ -3,18 +3,20 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="about">
-    <section>
-        <h2>About</h2>
-        <p>このサイトは、kama2vernが運営する個人ブログです。</p>
-        <p>主に、プログラミングや技術に関する記事を掲載しています。</p>
-        <p>また、趣味や日常生活についても書いていく予定です。</p>
-    </section>
-    <section>
-        <h2>Accounts</h2>
-        <ul>
-            <li>
-                <a href="https://x.com/kama2vern">Twitter (X): kama2vern</a>
-            </li>
-        </ul>
-    </section>
+	<div class="container mx-auto max-w-2xl py-12 flex gap-12">
+        <section>
+            <h2>About</h2>
+            <p>このサイトは、kama2vernが運営する個人ブログです。</p>
+            <p>主に、プログラミングや技術に関する記事を掲載しています。</p>
+            <p>また、趣味や日常生活についても書いていく予定です。</p>
+        </section>
+        <section>
+            <h2>Accounts</h2>
+            <ul>
+                <li>
+                    <a href="https://x.com/kama2vern" class="font-bold text-slate-700 underline">Twitter (X): kama2vern</a>
+                </li>
+            </ul>
+        </section>
+    </div>
 </Layout>
