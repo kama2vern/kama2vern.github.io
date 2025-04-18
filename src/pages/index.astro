@@ -4,23 +4,23 @@ import { latestArticles } from '../lib/articles';
 ---
 
 <Layout title="kama2vern.github.io">
-	<section>
-		<ul>
+	<section class="w-full p-12">
+		<ul class="flex flex-col gap-12">
 			{latestArticles().map((article) => <li>
-				<p>
-					<time datetime={article.frontmatter.pubDate}>{
-						new Date(article.frontmatter.pubDate).toLocaleDateString("ja-JP", {
+				<time datetime={article.data.pubDate.toISOString()} class="block text-gray-700">
+					{
+						new Date(article.data.pubDate).toLocaleDateString("ja-JP", {
 							year: 'numeric',
 							month: 'long',
 							day: 'numeric',
 						})
-					}</time>
-				</p>
-				<a href={article.url}>{article.frontmatter.title}</a>
+					}
+				</time>
+				<a href={`/articles/${article.slug}`}>{article.data.title}</a>
 			</li>)}
 		</ul>
-	</section>
-	<section>
-		<a href="/articles">»_すべての記事一覧へ</a>
+		<p class="mt-12">
+			<a class="before:content-['»_']" href="/articles">すべての記事一覧へ</a>
+		</p>
 	</section>
 </Layout>

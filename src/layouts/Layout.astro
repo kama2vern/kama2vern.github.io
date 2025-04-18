@@ -1,5 +1,5 @@
 ---
-import "../styles/mvp.css";
+import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 const { title } = Astro.props.frontmatter || Astro.props;
@@ -13,7 +13,7 @@ const { title } = Astro.props.frontmatter || Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-slate-100">
 		<Navigation />
 		<main>
 			<slot />

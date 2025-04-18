@@ -4,19 +4,20 @@ import { allArticlesSortedByDate } from '../lib/articles';
 ---
 
 <Layout title="記事一覧">
-	<section>
-		<ul>
+	<section class="w-full p-12">
+		<h1 class="mb-6">記事一覧</h1>
+		<ul class="flex flex-col gap-12">
 			{allArticlesSortedByDate().map((article) => <li>
-				<p>
-					<time datetime={article.frontmatter.pubDate}>{
-						new Date(article.frontmatter.pubDate).toLocaleDateString("ja-JP", {
+				<time datetime={article.data.pubDate.toISOString()} class="block text-gray-700">
+					{
+						new Date(article.data.pubDate).toLocaleDateString("ja-JP", {
 							year: 'numeric',
 							month: 'long',
 							day: 'numeric',
 						})
-					}</time>
-				</p>
-				<a href={article.url}>{article.frontmatter.title}</a>
+					}
+				</time>
+				<a href={`/articles/${article.slug}`}>{article.data.title}</a>
 			</li>)}
 		</ul>
 	</section>

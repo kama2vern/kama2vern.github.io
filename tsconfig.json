@@ -3,7 +3,9 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
+    "strictNullChecks": true,
     "types": ["vite/client"],
+    "typeRoots": ["./node_modules/@types/", "./types", "./node_modules"],
     "plugins": [
       {
         "name": "@astrojs/ts-plugin",

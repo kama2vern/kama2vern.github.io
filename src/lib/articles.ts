@@ -1,16 +1,19 @@
-import type { MarkdownInstance } from 'astro';
-export interface Frontmatter {
-    title: string;
-	pubDate: string;
+import { getCollection } from 'astro:content';
+const isDev = import.meta.env.DEV;
+const allArticles = await getCollection('article');
+
+function validArticles() {
+    return allArticles.filter((article) => {
+        if (isDev) return true;
+
+        const { isDebugArticle } = article.data;
+        return !isDebugArticle;
+    });
 }
 
-export const allArticles = Object.values(
-	import.meta.glob<MarkdownInstance<Frontmatter>>('../pages/articles/*.md', { eager: true })
-);
-
 export function allArticlesSortedByDate() {
-    return allArticles
-        .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
+    return validArticles()
+        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 }
 
 export function latestArticles() {

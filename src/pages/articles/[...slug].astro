@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Prose from '../../components/Prose.astro';
+import { allArticlesSortedByDate } from '../../lib/articles';
+
+// 1. コレクションエントリーごとに新しいパスを生成
+export async function getStaticPaths() {
+  return allArticlesSortedByDate().map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+// 2. テンプレートでは、プロパティからエントリーを直接取得できる
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<Layout>
+  <Prose>
+    <Content />
+  </Prose>
+</Layout>
