@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { latestArticles } from '../lib/articles';
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.png';
 ---
 
 <Layout title="kama2vern.github.io">
 	<div class="container mx-auto max-w-2xl py-12">
 		<section>
-			<img src="src/assets/profile.png" alt="kama2vern" class="rounded rounded-2xl w-48 h-48 mb-16 transition-all duration-300 hover:scale-110" />
+			<Image src={profileImage} alt="kama2vern" class="rounded rounded-2xl w-48 h-48 mb-16 transition-all duration-300 hover:scale-110" />
 			<ul class="flex flex-col gap-12">
 				{latestArticles().map((article) => <li>
 					<time datetime={article.data.pubDate.toISOString()} class="block text-slate-700">
