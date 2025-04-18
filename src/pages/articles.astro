@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { latestArticles } from '../lib/articles';
+import { allArticlesSortedByDate } from '../lib/articles';
 ---
 
-<Layout title="kama2vern.github.io">
+<Layout title="記事一覧">
 	<section>
 		<ul>
-			{latestArticles().map((article) => <li>
+			{allArticlesSortedByDate().map((article) => <li>
 				<p>
 					<time datetime={article.frontmatter.pubDate}>{
 						new Date(article.frontmatter.pubDate).toLocaleDateString("ja-JP", {
@@ -19,8 +19,5 @@ import { latestArticles } from '../lib/articles';
 				<a href={article.url}>{article.frontmatter.title}</a>
 			</li>)}
 		</ul>
-	</section>
-	<section>
-		<a href="/articles">»_すべての記事一覧へ</a>
 	</section>
 </Layout>
