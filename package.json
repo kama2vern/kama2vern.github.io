@@ -12,6 +12,7 @@
     "@astrojs/ts-plugin": "^1.10.4",
     "@tailwindcss/vite": "^4.1.4",
     "astro": "^5.5.3",
+    "remark-link-card-plus": "^0.4.1",
     "sharp": "^0.34.1",
     "tailwindcss": "^4.1.4"
   },

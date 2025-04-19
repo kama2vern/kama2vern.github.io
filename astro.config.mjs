@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import remarkLinkCard from 'remark-link-card-plus';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +11,17 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  markdown: {
+    remarkPlugins: [
+      [
+        remarkLinkCard, {
+          cache: false,
+          shortenUrl: true,
+          thumbnailPosition: "right",
+        },
+      ],
+    ],
   },
 });
