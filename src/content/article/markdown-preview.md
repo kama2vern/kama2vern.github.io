@@ -43,7 +43,7 @@ _You **can** combine them_
 
 ## Images
 
-![This is an alt text.](/image/sample.webp "This is a sample image.")
+![This is an alt text.](../../assets/profile.png "This is a sample image.")
 
 ## Links
 
@@ -65,7 +65,7 @@ You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
 
 ## Blocks of code
 
-```
+```ts
 let message = 'Hello world';
 alert(message);
 ```
