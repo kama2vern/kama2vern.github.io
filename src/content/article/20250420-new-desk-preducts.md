@@ -67,7 +67,7 @@ PREDUCTSの天板は最初から穴はあいているものの、これは木ネ
 
 これのお陰でボルトが斜めに留まる箇所は一つも出てこなかったので買って正解だった……。
 
-https://youtu.be/TMSoWR61S68?si=wzJ2DOojYW02AEwL
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TMSoWR61S68?si=bL3uMnlpVMkr7nXo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ここまでの鬼目ナット化は、幸いなことに先行事例がかなりあり参考にさせて頂きました。
 
